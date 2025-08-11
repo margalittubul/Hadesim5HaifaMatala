@@ -62,6 +62,7 @@ def process_in_chunks(file_path, chunk_days=2):
         # ממוצע נוסף כדי לאחד ערכים באותם השעות (לדוגמה אם היה כפילות)
         final_avg = combined_df.groupby('hour')['value'].mean().reset_index()
     else:
+        #אם אין נתונים מחזיר טבלה ריקה
         final_avg = pd.DataFrame(columns=['hour', 'value'])
 
     return final_avg

@@ -10,6 +10,7 @@ def read_series_time(file_path):
     else:
         raise ValueError("Unsupported file format. Use .csv or .parquet")
 
+    #מסיר רווחים בשמות העמודות
     df.columns = df.columns.str.strip()
     df['timestamp'] = pd.to_datetime(df['timestamp'], errors='coerce', dayfirst=True)
     return df
